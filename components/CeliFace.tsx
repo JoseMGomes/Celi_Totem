@@ -126,12 +126,11 @@ export default function CeliFace({ expression }: CeliFaceProps) {
     },
   };
 
-
   const zzzVariants: Variants = {
     hidden: { opacity: 0, x: 0, y: 0, scale: 0.5 },
     visible: (custom: number) => ({
-      opacity: [0, 1, 0.8, 0], 
-      x: [0, 10, 20], 
+      opacity: [0, 1, 0.8, 0],
+      x: [0, 10, 20],
       y: [0, -15, -30],
       scale: [0.5, 1.2, 1.4],
       transition: {
@@ -139,7 +138,7 @@ export default function CeliFace({ expression }: CeliFaceProps) {
         repeat: Infinity,
         delay: custom * 0.8,
         ease: "easeInOut",
-        times: [0, 0.4, 0.7, 1], 
+        times: [0, 0.4, 0.7, 1],
       },
     }),
   };
@@ -169,6 +168,7 @@ export default function CeliFace({ expression }: CeliFaceProps) {
           fontWeight="bold"
           opacity="0"
           variants={zzzVariants}
+          initial="hidden"
           custom={0}
           animate={expression === "dormindo" ? "visible" : "hidden"}
         >
@@ -182,6 +182,7 @@ export default function CeliFace({ expression }: CeliFaceProps) {
           fontWeight="bold"
           opacity="0"
           variants={zzzVariants}
+          initial="hidden"
           custom={1}
           animate={expression === "dormindo" ? "visible" : "hidden"}
         >
@@ -195,6 +196,7 @@ export default function CeliFace({ expression }: CeliFaceProps) {
           fontWeight="bold"
           opacity="0"
           variants={zzzVariants}
+          initial="hidden"
           custom={2}
           animate={expression === "dormindo" ? "visible" : "hidden"}
         >
@@ -203,6 +205,7 @@ export default function CeliFace({ expression }: CeliFaceProps) {
 
         <motion.path
           variants={eyebrowLeft}
+          initial="normal"
           animate={expression}
           transition={{ type: "spring", stiffness: 150, damping: 12 }}
           fill="transparent"
@@ -212,6 +215,7 @@ export default function CeliFace({ expression }: CeliFaceProps) {
         />
         <motion.path
           variants={eyebrowRight}
+          initial="normal"
           animate={expression}
           transition={{ type: "spring", stiffness: 150, damping: 12 }}
           fill="transparent"
@@ -222,6 +226,7 @@ export default function CeliFace({ expression }: CeliFaceProps) {
 
         <motion.g
           variants={eyeGroupLeft}
+          initial="normal"
           animate={expression}
           style={{ originX: "60px", originY: "60px" }}
           transition={{ type: "spring", stiffness: 180, damping: 14 }}
@@ -239,6 +244,7 @@ export default function CeliFace({ expression }: CeliFaceProps) {
             r="6"
             fill={neonCyan}
             variants={pupilLeft}
+            initial="normal"
             animate={expression}
             clipPath="url(#left-eye-clip)"
           />
@@ -246,6 +252,7 @@ export default function CeliFace({ expression }: CeliFaceProps) {
 
         <motion.g
           variants={eyeGroupRight}
+          initial="normal"
           animate={expression}
           style={{ originX: "140px", originY: "60px" }}
           transition={{ type: "spring", stiffness: 180, damping: 14 }}
@@ -263,6 +270,7 @@ export default function CeliFace({ expression }: CeliFaceProps) {
             r="6"
             fill={neonCyan}
             variants={pupilRight}
+            initial="normal"
             animate={expression}
             clipPath="url(#right-eye-clip)"
           />
@@ -278,6 +286,7 @@ export default function CeliFace({ expression }: CeliFaceProps) {
           strokeWidth="4"
           strokeDasharray="8 8"
           variants={dashedEye}
+          initial="normal"
           animate={expression}
         />
         <motion.ellipse
@@ -290,6 +299,7 @@ export default function CeliFace({ expression }: CeliFaceProps) {
           strokeWidth="4"
           strokeDasharray="8 8"
           variants={dashedEye}
+          initial="normal"
           animate={expression}
         />
 
@@ -300,6 +310,7 @@ export default function CeliFace({ expression }: CeliFaceProps) {
           strokeWidth="4"
           strokeLinecap="round"
           variants={happyEye}
+          initial="normal"
           animate={expression}
         />
         <motion.path
@@ -309,6 +320,7 @@ export default function CeliFace({ expression }: CeliFaceProps) {
           strokeWidth="4"
           strokeLinecap="round"
           variants={happyEye}
+          initial="normal"
           animate={expression}
         />
 
@@ -319,6 +331,7 @@ export default function CeliFace({ expression }: CeliFaceProps) {
           strokeWidth="4"
           strokeLinecap="round"
           variants={sleepingEye}
+          initial="normal"
           animate={expression}
         />
         <motion.path
@@ -328,11 +341,13 @@ export default function CeliFace({ expression }: CeliFaceProps) {
           strokeWidth="4"
           strokeLinecap="round"
           variants={sleepingEye}
+          initial="normal"
           animate={expression}
         />
 
         <motion.path
           variants={mouthVariants}
+          initial="normal"
           animate={expression}
           transition={{ type: "spring", stiffness: 150, damping: 12 }}
           fill="transparent"
@@ -344,6 +359,7 @@ export default function CeliFace({ expression }: CeliFaceProps) {
 
         <motion.g
           variants={processingMouth}
+          initial="normal"
           animate={expression}
           transform="translate(50, 90)"
         >
