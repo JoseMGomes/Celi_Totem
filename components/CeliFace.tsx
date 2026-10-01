@@ -148,8 +148,9 @@ export default function CeliFace({ expression }: CeliFaceProps) {
       <svg
         width="100%"
         height="100%"
-        viewBox="0 0 200 150"
-        className="drop-shadow-[0_0_15px_#00E5FF] max-w-[500px] overflow-visible"
+        viewBox="0 -30 200 180" // MAGIA: Isso resolve o Zzz cortado e os olhos cortados
+        className="w-full h-full max-h-full overflow-visible"
+        preserveAspectRatio="xMidYMid meet"
       >
         <defs>
           <clipPath id="left-eye-clip">
@@ -160,209 +161,35 @@ export default function CeliFace({ expression }: CeliFaceProps) {
           </clipPath>
         </defs>
 
-        <motion.text
-          x="135"
-          y="45"
-          fill={neonCyan}
-          fontSize="14"
-          fontWeight="bold"
-          opacity="0"
-          variants={zzzVariants}
-          initial="hidden"
-          custom={0}
-          animate={expression === "dormindo" ? "visible" : "hidden"}
-        >
-          Z
-        </motion.text>
-        <motion.text
-          x="150"
-          y="30"
-          fill={neonCyan}
-          fontSize="20"
-          fontWeight="bold"
-          opacity="0"
-          variants={zzzVariants}
-          initial="hidden"
-          custom={1}
-          animate={expression === "dormindo" ? "visible" : "hidden"}
-        >
-          Z
-        </motion.text>
-        <motion.text
-          x="170"
-          y="15"
-          fill={neonCyan}
-          fontSize="26"
-          fontWeight="bold"
-          opacity="0"
-          variants={zzzVariants}
-          initial="hidden"
-          custom={2}
-          animate={expression === "dormindo" ? "visible" : "hidden"}
-        >
-          Z
-        </motion.text>
+        <motion.text x="135" y="45" fill={neonCyan} fontSize="14" fontWeight="bold" opacity="0" variants={zzzVariants} initial="hidden" custom={0} animate={expression === "dormindo" ? "visible" : "hidden"}>Z</motion.text>
+        <motion.text x="150" y="30" fill={neonCyan} fontSize="20" fontWeight="bold" opacity="0" variants={zzzVariants} initial="hidden" custom={1} animate={expression === "dormindo" ? "visible" : "hidden"}>Z</motion.text>
+        <motion.text x="170" y="15" fill={neonCyan} fontSize="26" fontWeight="bold" opacity="0" variants={zzzVariants} initial="hidden" custom={2} animate={expression === "dormindo" ? "visible" : "hidden"}>Z</motion.text>
 
-        <motion.path
-          variants={eyebrowLeft}
-          initial="normal"
-          animate={expression}
-          transition={{ type: "spring", stiffness: 150, damping: 12 }}
-          fill="transparent"
-          stroke={neonCyan}
-          strokeWidth="3"
-          strokeLinecap="round"
-        />
-        <motion.path
-          variants={eyebrowRight}
-          initial="normal"
-          animate={expression}
-          transition={{ type: "spring", stiffness: 150, damping: 12 }}
-          fill="transparent"
-          stroke={neonCyan}
-          strokeWidth="3"
-          strokeLinecap="round"
-        />
+        <motion.path variants={eyebrowLeft} initial="normal" animate={expression} transition={{ type: "spring", stiffness: 150, damping: 12 }} fill="transparent" stroke={neonCyan} strokeWidth="3" strokeLinecap="round" />
+        <motion.path variants={eyebrowRight} initial="normal" animate={expression} transition={{ type: "spring", stiffness: 150, damping: 12 }} fill="transparent" stroke={neonCyan} strokeWidth="3" strokeLinecap="round" />
 
-        <motion.g
-          variants={eyeGroupLeft}
-          initial="normal"
-          animate={expression}
-          style={{ originX: "60px", originY: "60px" }}
-          transition={{ type: "spring", stiffness: 180, damping: 14 }}
-        >
-          <ellipse
-            cx="60"
-            cy="60"
-            rx="16"
-            ry="26"
-            fill="transparent"
-            stroke={neonCyan}
-            strokeWidth="4"
-          />
-          <motion.circle
-            r="6"
-            fill={neonCyan}
-            variants={pupilLeft}
-            initial="normal"
-            animate={expression}
-            clipPath="url(#left-eye-clip)"
-          />
+        <motion.g variants={eyeGroupLeft} initial="normal" animate={expression} style={{ originX: "60px", originY: "60px" }} transition={{ type: "spring", stiffness: 180, damping: 14 }}>
+          <ellipse cx="60" cy="60" rx="16" ry="26" fill="transparent" stroke={neonCyan} strokeWidth="4" />
+          <motion.circle r="6" fill={neonCyan} variants={pupilLeft} initial="normal" animate={expression} clipPath="url(#left-eye-clip)" />
         </motion.g>
 
-        <motion.g
-          variants={eyeGroupRight}
-          initial="normal"
-          animate={expression}
-          style={{ originX: "140px", originY: "60px" }}
-          transition={{ type: "spring", stiffness: 180, damping: 14 }}
-        >
-          <ellipse
-            cx="140"
-            cy="60"
-            rx="16"
-            ry="26"
-            fill="transparent"
-            stroke={neonCyan}
-            strokeWidth="4"
-          />
-          <motion.circle
-            r="6"
-            fill={neonCyan}
-            variants={pupilRight}
-            initial="normal"
-            animate={expression}
-            clipPath="url(#right-eye-clip)"
-          />
+        <motion.g variants={eyeGroupRight} initial="normal" animate={expression} style={{ originX: "140px", originY: "60px" }} transition={{ type: "spring", stiffness: 180, damping: 14 }}>
+          <ellipse cx="140" cy="60" rx="16" ry="26" fill="transparent" stroke={neonCyan} strokeWidth="4" />
+          <motion.circle r="6" fill={neonCyan} variants={pupilRight} initial="normal" animate={expression} clipPath="url(#right-eye-clip)" />
         </motion.g>
 
-        <motion.ellipse
-          cx="60"
-          cy="60"
-          rx="16"
-          ry="26"
-          fill="transparent"
-          stroke={neonCyan}
-          strokeWidth="4"
-          strokeDasharray="8 8"
-          variants={dashedEye}
-          initial="normal"
-          animate={expression}
-        />
-        <motion.ellipse
-          cx="140"
-          cy="60"
-          rx="16"
-          ry="26"
-          fill="transparent"
-          stroke={neonCyan}
-          strokeWidth="4"
-          strokeDasharray="8 8"
-          variants={dashedEye}
-          initial="normal"
-          animate={expression}
-        />
+        <motion.ellipse cx="60" cy="60" rx="16" ry="26" fill="transparent" stroke={neonCyan} strokeWidth="4" strokeDasharray="8 8" variants={dashedEye} initial="normal" animate={expression} />
+        <motion.ellipse cx="140" cy="60" rx="16" ry="26" fill="transparent" stroke={neonCyan} strokeWidth="4" strokeDasharray="8 8" variants={dashedEye} initial="normal" animate={expression} />
 
-        <motion.path
-          d="M 44 65 A 16 26 0 0 1 76 65"
-          fill="transparent"
-          stroke={neonCyan}
-          strokeWidth="4"
-          strokeLinecap="round"
-          variants={happyEye}
-          initial="normal"
-          animate={expression}
-        />
-        <motion.path
-          d="M 124 65 A 16 26 0 0 1 156 65"
-          fill="transparent"
-          stroke={neonCyan}
-          strokeWidth="4"
-          strokeLinecap="round"
-          variants={happyEye}
-          initial="normal"
-          animate={expression}
-        />
+        <motion.path d="M 44 65 A 16 26 0 0 1 76 65" fill="transparent" stroke={neonCyan} strokeWidth="4" strokeLinecap="round" variants={happyEye} initial="normal" animate={expression} />
+        <motion.path d="M 124 65 A 16 26 0 0 1 156 65" fill="transparent" stroke={neonCyan} strokeWidth="4" strokeLinecap="round" variants={happyEye} initial="normal" animate={expression} />
 
-        <motion.path
-          d="M 46 65 Q 60 75 74 65"
-          fill="transparent"
-          stroke={neonCyan}
-          strokeWidth="4"
-          strokeLinecap="round"
-          variants={sleepingEye}
-          initial="normal"
-          animate={expression}
-        />
-        <motion.path
-          d="M 126 65 Q 140 75 154 65"
-          fill="transparent"
-          stroke={neonCyan}
-          strokeWidth="4"
-          strokeLinecap="round"
-          variants={sleepingEye}
-          initial="normal"
-          animate={expression}
-        />
+        <motion.path d="M 46 65 Q 60 75 74 65" fill="transparent" stroke={neonCyan} strokeWidth="4" strokeLinecap="round" variants={sleepingEye} initial="normal" animate={expression} />
+        <motion.path d="M 126 65 Q 140 75 154 65" fill="transparent" stroke={neonCyan} strokeWidth="4" strokeLinecap="round" variants={sleepingEye} initial="normal" animate={expression} />
 
-        <motion.path
-          variants={mouthVariants}
-          initial="normal"
-          animate={expression}
-          transition={{ type: "spring", stiffness: 150, damping: 12 }}
-          fill="transparent"
-          stroke={neonCyan}
-          strokeWidth="4"
-          strokeLinecap="round"
-          transform="translate(50, 90)"
-        />
+        <motion.path variants={mouthVariants} initial="normal" animate={expression} transition={{ type: "spring", stiffness: 150, damping: 12 }} fill="transparent" stroke={neonCyan} strokeWidth="4" strokeLinecap="round" transform="translate(50, 90)" />
 
-        <motion.g
-          variants={processingMouth}
-          initial="normal"
-          animate={expression}
-          transform="translate(50, 90)"
-        >
+        <motion.g variants={processingMouth} initial="normal" animate={expression} transform="translate(50, 90)">
           <circle cx="35" cy="15" r="2.5" fill={neonCyan} />
           <circle cx="50" cy="15" r="2.5" fill={neonCyan} />
           <circle cx="65" cy="15" r="2.5" fill={neonCyan} />
